@@ -1,0 +1,41 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Caches e Checkpoints do Jupyter
+.ipynb_checkpoints/
+*/.ipynb_checkpoints/*
+.pytest_cache/
+
+# Ambientes Virtuais (Virtual Environments)
+venv/
+.venv/
+env/
+.env/
+ENV/
+env.bak/
+venv.bak/
+
+# IDEs e Editores de Código
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Arquivos de Sistema Operacional
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs e Arquivos Temporários de Inspeção
+*.log
+retorno.txt
+test_unicode*
+outputs/pdf_pages/
+
+# Dados (Dataset sob licença Apache 2.0 no Kaggle, permitido para publicação).
+# Caso deseje manter o repositório sem arquivos de dados pesados (>2MB), descomente as linhas abaixo:
+# data/Student_Depression_Dataset.csv
+# data/student_depression_cleaned.csv

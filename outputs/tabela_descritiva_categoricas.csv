@@ -1,0 +1,16 @@
+Variável,Categoria,Freq. Absoluta (N),Freq. Relativa (%)
+Gender,Male,15511,55.72080324747638
+Gender,Female,12326,44.27919675252362
+Sleep Duration,Less than 5 hours,8297,29.805654344936595
+Sleep Duration,7-8 hours,7334,26.346229837985412
+Sleep Duration,5-6 hours,6172,22.171929446420233
+Sleep Duration,More than 8 hours,6034,21.676186370657756
+Dietary Habits,Unhealthy,10300,37.0011136257499
+Dietary Habits,Moderate,9903,35.57495419765061
+Dietary Habits,Healthy,7634,27.423932176599493
+Have you ever had suicidal thoughts ?,Yes,17610,63.26112727664619
+Have you ever had suicidal thoughts ?,No,10227,36.73887272335381
+Family History of Mental Illness,No,14364,51.6003879728419
+Family History of Mental Illness,Yes,13473,48.3996120271581
+Depression,1,16290,58.51923698674426
+Depression,0,11547,41.48076301325574
