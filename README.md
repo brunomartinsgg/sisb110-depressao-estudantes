@@ -5,8 +5,15 @@ Este repositório contém o projeto prático individual desenvolvido para a disc
 
 O projeto adota uma perspectiva de **Business Intelligence (BI) para Gestão Universitária**, investigando como fatores de sobrecarga acadêmica, higiene do sono, estresse financeiro e satisfação estão associados à ocorrência de indicativo de depressão entre estudantes.
 
+* **Autor:** Bruno Martins Gomes — SISB110, UFAL
 * **Repositório Público do Projeto:** [https://github.com/brunomartinsgg/sisb110-depressao-estudantes](https://github.com/brunomartinsgg/sisb110-depressao-estudantes)
 * **Relatório Executivo em PDF:** [`relatorio_executivo_bi.pdf`](relatorio_executivo_bi.pdf)
+
+### Principais Resultados
+* **Prevalência Amostral Estimada:** A proporção de discentes com indicativo de depressão é de **58,52%** (IC 95% de Wilson: **[57,94%, 59,10%]**, margem de erro de ±0,58%).
+* **Vulnerabilidade Financeira como Maior Preditador:** A taxa de depressão cresce de forma acentuada e monotônica de **31,81%** no nível 1 para **81,23%** no nível 5 ($V = 0,36$; tendência de Cochran-Armitage $Z = 60,67$, $p < 0,0001$).
+* **Sobrecarga Acadêmica Substantivamente Superior:** Estudantes com depressão reportam maior pressão percebida (média de **3,69** vs. **2,36**; Mann-Whitney $U = 1,45 \times 10^8$, $p < 0,0001$, $d = 1,10$), com probabilidade de superioridade de **aproximadamente 77%, contando empates pela metade**.
+* **Desconexão entre Notas e Satisfação:** O coeficiente de rendimento (CGPA) não possui relevância prática substantiva com a satisfação com os estudos (Spearman $\rho = -0,0467$, $p < 0,0001$; magnitude desprezível $\lvert\rho\rvert < 0,10$).
 
 ---
 
@@ -20,6 +27,7 @@ O projeto adota uma perspectiva de **Business Intelligence (BI) para Gestão Uni
 │   ├── 01_distribuicoes_numericas.png
 │   ├── 02_sleep_vs_depression.png
 │   ├── 03_academic_pressure_by_depression.png
+│   ├── 04_cgpa_by_sleep_duration.png
 │   ├── 04_dispersao_satisfacao_cgpa.png # Gráfico de dispersão P5 com jitter e tendência linear
 │   ├── 05_correlation_matrices.png
 │   ├── 06_pressupostos_normais.png
@@ -30,7 +38,8 @@ O projeto adota uma perspectiva de **Business Intelligence (BI) para Gestão Uni
 │   ├── tabela_sensibilidade_cgpa.csv
 │   ├── matriz_correlacao_pearson.csv
 │   └── matriz_correlacao_spearman.csv
-├── analise_depressao.ipynb             # Notebook reprodutivo executável de ponta a ponta (Etapas I a IV)
+├── analise_depressao.ipynb             # Notebook reprodutível executável de ponta a ponta (Etapas I a IV)
+├── generate_pdf.py                     # Script para compilação do Relatório Executivo em PDF (ReportLab)
 ├── relatorio_executivo_bi.pdf          # Relatório Executivo Final em PDF (8 páginas com DejaVu Sans Unicode)
 ├── AGENTE_CIENTISTA_DADOS.md           # Planejamento, decisões metodológicas e log de progresso
 ├── requirements.txt                    # Dependências do ambiente Python (inclui reportlab e pymupdf)
@@ -45,7 +54,7 @@ O projeto adota uma perspectiva de **Business Intelligence (BI) para Gestão Uni
 * **Fonte Primária Original:** *Student Depression Dataset* no Kaggle ([link oficial no Kaggle](https://www.kaggle.com/datasets/hopesb/student-depression-dataset)), publicado por Shodolamu Opeyemi (`hopesb`).
 * **Licença do Dataset:** Licença **Apache 2.0** formalmente registrada no Kaggle (código aberto permissivo, que autoriza reprodução, redistribuição e modificação).
 * **Espelho Utilizado no Projeto:** Repositório no Hugging Face Datasets ([urmah/student-depression-analysis](https://huggingface.co/datasets/urmah/student-depression-analysis)).
-* **Volume Bruto:** 27.901 linhas e 18 colunas (versão integral confirmada, sem homônimos reduzidos).
+* **Volume Bruto:** 27.901 linhas e 18 colunas (conferido: 27.901 linhas e 18 colunas, compatível com a versão integral do dataset).
 
 #### Como baixar o arquivo CSV:
 1. Caso não esteja na pasta, baixe diretamente o arquivo `Student_Depression_Dataset.csv` pelo [Kaggle](https://www.kaggle.com/datasets/hopesb/student-depression-dataset) ou pelo endpoint do Hugging Face:
@@ -60,7 +69,7 @@ O projeto adota uma perspectiva de **Business Intelligence (BI) para Gestão Uni
 ### 3. Como Reproduzir o Projeto
 
 #### Pré-requisitos
-* Python 3.10+ (testado em Python 3.14)
+* Python 3.14 (testado nesta versão)
 * Gerenciador de pacotes `pip`
 
 #### Instalação das Dependências
@@ -70,7 +79,7 @@ No terminal, dentro da pasta raiz do projeto, instale os pacotes listados em `re
 pip install -r requirements.txt
 ```
 
-#### Execução Completa ("Restart & Run All")
+#### Execução do Notebook ("Restart & Run All")
 Abra e execute o notebook `analise_depressao.ipynb` em seu ambiente preferido (Jupyter Lab, VS Code, Google Colab ou Jupyter Notebook) e clique em **Kernel -> Restart & Run All**.
 
 O notebook roda do início ao fim sem intervenções:
@@ -79,6 +88,15 @@ O notebook roda do início ao fim sem intervenções:
 3. Produz todas as tabelas descritivas univariadas e bivariadas.
 4. Conduz a análise inferencial completa (IC de Wilson, Mann-Whitney U, Welch, Qui-Quadrado, Cochran-Armitage e Spearman) com seus tamanhos de efeito e controle de comparações múltiplas.
 5. Salva todas as figuras em alta resolução (300 DPI) — incluindo o gráfico de dispersão com jitter horizontal e reta de tendência linear de P5 — e tabelas em formato CSV na pasta `outputs/`.
+
+#### Como Regenerar o Relatório em PDF
+Para recompilar o arquivo [`relatorio_executivo_bi.pdf`](relatorio_executivo_bi.pdf):
+
+```bash
+python generate_pdf.py
+```
+
+O script utiliza a biblioteca `reportlab` e acessa diretamente a fonte tipográfica vetorial *DejaVu Sans* (que acompanha a instalação do `matplotlib`), assegurando renderização Unicode nativa e controle dinâmico de cabeçalho e rodapé em duas passadas (`NumberedCanvas`) em exatamente 8 páginas, sem requerer instalação de fontes no sistema operacional.
 
 ---
 
@@ -90,7 +108,7 @@ O notebook roda do início ao fim sem intervenções:
 | **P2: Pressão Acadêmica vs Depressão** | `Academic Pressure` (0-5) × `Depression` | $H_0: F_{\text{com}}(x) = F_{\text{sem}}(x)$<br>$H_1: F_{\text{com}}(x) \neq F_{\text{sem}}(x)$ | Teste U de Mann-Whitney ($U = 1,45 \times 10^8$, $p < 0,0001$) | $r_{rb} = 0,5408$; **probabilidade de superioridade de aproximadamente 77%, contando empates pela metade**. Welch: $t = 89,21$, $d = 1,10$. | **Rejeita $H_0$**; Associação de grande magnitude |
 | **P3: Duração do Sono vs Depressão** | `Sleep Duration` (4 faixas) × `Depression` | $H_0$: Variáveis independentes<br>$H_1$: Variáveis associadas | Qui-Quadrado de Independência ($\chi^2 = 277,90$, $p < 0,0001$, $gl=3$) | $V$ de Cramér = **0,10** (associação fraca). Taxas: $<5$h ($64,5\%$), $5\text{--}6$h ($56,9\%$), $7\text{--}8$h ($59,5\%$), $>8$h ($50,9\%$). | **Rejeita $H_0$**; Associação fraca e não-monotônica |
 | **P4: Estresse Financeiro vs Depressão** | `Financial Stress` (1-5) × `Depression` | $H_0$: Independência e sem tendência<br>$H_1$: Tendência linear/monotônica crescente | Qui-Quadrado ($\chi^2 = 3695,04$, $p < 0,0001$, $gl=4$) | $V$ de Cramér = **0,36** (associação moderada); Tendência de Cochran-Armitage: $Z = 60,67$, $p < 0,0001$ (tendência forte, de $31,8\%$ a $81,2\%$). | **Rejeita $H_0$**; Gradiente estrito crescente |
-| **P5: Satisfação com Estudos vs CGPA** | `Study Satisfaction` (0-5) × `CGPA` (0-10) | $H_0: \rho = 0$<br>$H_1: \rho \neq 0$ | Correlação de Spearman ($\rho = -0,0467$, $p < 0,0001$) | Correlação de Pearson ($r = -0,0466$, $p < 0,0001$). Magnitude negligenciável ($|\rho| < 0,10$). Gráfico de dispersão com jitter salvo em `outputs/04_dispersao_satisfacao_cgpa.png`. | **Rejeita $H_0$** matemático, mas **efeito prático negligenciável** |
+| **P5: Satisfação com Estudos vs CGPA** | `Study Satisfaction` (0-5) × `CGPA` (0-10) | $H_0: \rho = 0$<br>$H_1: \rho \neq 0$ | Correlação de Spearman ($\rho = -0,0467$, $p < 0,0001$) | Correlação de Pearson ($r = -0,0466$, $p < 0,0001$). Magnitude negligenciável ($\lvert\rho\rvert < 0,10$). Gráfico de dispersão com jitter salvo em `outputs/04_dispersao_satisfacao_cgpa.png`. | **Rejeita $H_0$** matemático, mas **efeito prático negligenciável** |
 
 *Nota de Comparações Múltiplas:* São 4 famílias de hipóteses (P1 é IC; P2 possui dois testes para a mesma hipótese). Ajustando para as famílias via método de Holm-Bonferroni, todos os testes mantêm significância estatística ($p < 10^{-14}$).
 
