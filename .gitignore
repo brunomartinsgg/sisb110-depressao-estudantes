@@ -34,6 +34,7 @@ desktop.ini
 retorno.txt
 test_unicode*
 outputs/pdf_pages/
+Atividade Av1.pdf
 
 # Dados (Dataset sob licença Apache 2.0 no Kaggle, permitido para publicação).
 # Caso deseje manter o repositório sem arquivos de dados pesados (>2MB), descomente as linhas abaixo:
