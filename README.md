@@ -10,9 +10,9 @@ O projeto adota uma perspectiva de **Business Intelligence (BI) para Gestão Uni
 * **Relatório Executivo em PDF:** [`relatorio_executivo_bi.pdf`](relatorio_executivo_bi.pdf)
 
 ### Principais Resultados
-* **Prevalência Amostral Estimada:** A proporção de discentes com indicativo de depressão é de **58,52%** (IC 95% de Wilson: **[57,94%, 59,10%]**, margem de erro de ±0,58%).
-* **Vulnerabilidade Financeira como Maior Preditador:** A taxa de depressão cresce de forma acentuada e monotônica de **31,81%** no nível 1 para **81,23%** no nível 5 ($V = 0,36$; tendência de Cochran-Armitage $Z = 60,67$, $p < 0,0001$).
-* **Sobrecarga Acadêmica Substantivamente Superior:** Estudantes com depressão reportam maior pressão percebida (média de **3,69** vs. **2,36**; Mann-Whitney $U = 1,45 \times 10^8$, $p < 0,0001$, $d = 1,10$), com probabilidade de superioridade de **aproximadamente 77%, contando empates pela metade**.
+* **Sobrecarga Acadêmica como Efeito de Maior Magnitude:** Estudantes com indicativo de depressão reportam maior pressão acadêmica percebida (média de **3,69** vs. **2,36**; Mann-Whitney $U = 1,45 \times 10^8$, $p < 0,0001$, $d = 1,10$), com probabilidade de superioridade de **aproximadamente 77%, contando empates pela metade**.
+* **Estresse Financeiro como Fator Fortemente Associado:** Exibe associação moderada ($V = 0,36$) e forte tendência linear monotônica (Cochran-Armitage $Z = 60,67$, $p < 0,0001$), com a taxa de depressão crescendo de forma acentuada de **31,81%** no nível 1 para **81,23%** no nível 5.
+* **Prevalência Amostral Estimada:** A proporção de discentes com indicativo de depressão na amostra é de **58,52%** (IC 95% de Wilson: **[57,94%, 59,10%]**, margem de erro de ±0,58%).
 * **Desconexão entre Notas e Satisfação:** O coeficiente de rendimento (CGPA) não possui relevância prática substantiva com a satisfação com os estudos (Spearman $\rho = -0,0467$, $p < 0,0001$; magnitude desprezível $\lvert\rho\rvert < 0,10$).
 
 ---
