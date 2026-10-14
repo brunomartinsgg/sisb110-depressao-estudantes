@@ -7,7 +7,7 @@ O projeto adota uma perspectiva de **Business Intelligence (BI) para Gestão Uni
 
 * **Autor:** Bruno Martins Gomes — SISB110, UFAL
 * **Repositório Público do Projeto:** [https://github.com/brunomartinsgg/sisb110-depressao-estudantes](https://github.com/brunomartinsgg/sisb110-depressao-estudantes)
-* **Relatório Executivo em PDF:** [`relatorio_executivo_bi.pdf`](relatorio_executivo_bi.pdf)
+* **Relatório Acadêmico-Executivo em PDF:** [`relatorio_executivo_bi.pdf`](relatorio_executivo_bi.pdf) (20 páginas, padrão ABNT / modelo oficial UFAL Penedo)
 
 ### Principais Resultados
 * **Sobrecarga Acadêmica como Efeito de Maior Magnitude:** Estudantes com indicativo de depressão reportam maior pressão acadêmica percebida (média de **3,69** vs. **2,36**; Mann-Whitney $U = 1,45 \times 10^8$, $p < 0,0001$, $d = 1,10$), com probabilidade de superioridade de **aproximadamente 77%, contando empates pela metade**.
@@ -40,7 +40,7 @@ O projeto adota uma perspectiva de **Business Intelligence (BI) para Gestão Uni
 │   └── matriz_correlacao_spearman.csv
 ├── analise_depressao.ipynb             # Notebook reprodutível executável de ponta a ponta (Etapas I a IV)
 ├── generate_pdf.py                     # Script para compilação do Relatório Executivo em PDF (ReportLab)
-├── relatorio_executivo_bi.pdf          # Relatório Executivo Final em PDF (8 páginas com DejaVu Sans Unicode)
+├── relatorio_executivo_bi.pdf          # Relatório Acadêmico-Executivo Final em PDF (20 páginas, padrão ABNT / UFAL)
 ├── AGENTE_CIENTISTA_DADOS.md           # Planejamento, decisões metodológicas e log de progresso
 ├── requirements.txt                    # Dependências do ambiente Python (inclui reportlab e pymupdf)
 ├── .gitignore                          # Configuração de arquivos ignorados no versionamento
@@ -96,7 +96,7 @@ Para recompilar o arquivo [`relatorio_executivo_bi.pdf`](relatorio_executivo_bi.
 python generate_pdf.py
 ```
 
-O script utiliza a biblioteca `reportlab` e acessa diretamente a fonte tipográfica vetorial *DejaVu Sans* (que acompanha a instalação do `matplotlib`), assegurando renderização Unicode nativa e controle dinâmico de cabeçalho e rodapé em duas passadas (`NumberedCanvas`) em exatamente 8 páginas, sem requerer instalação de fontes no sistema operacional.
+O script gera o documento completo de 20 páginas formatado estritamente nas normas ABNT e no padrão institucional da UFAL (Campus Arapiraca / Unidade Educacional Penedo), utilizando a biblioteca `reportlab`, fonte vetorial *DejaVu Sans* nativa do `matplotlib` e compilação em duas passadas com `pymupdf` para mapeamento dinâmico e 100% exato dos números de página no Sumário. O Resumo Executivo fica contido integralmente em 1 página (página 4), e a numeração visível das páginas tem início formal na página textual 5 (Seção 1 - Introdução).
 
 ---
 
